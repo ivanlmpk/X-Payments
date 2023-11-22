@@ -1,0 +1,15 @@
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\bin\Debug\net7.0\XPaymentsProject.Infra.deps.json
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\bin\Debug\net7.0\XPaymentsProject.Infra.dll
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\bin\Debug\net7.0\XPaymentsProject.Infra.pdb
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\bin\Debug\net7.0\XPaymentsProject.Domain.dll
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\bin\Debug\net7.0\XPaymentsProject.Domain.pdb
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\obj\Debug\net7.0\XPaymentsProject.Infra.csproj.AssemblyReference.cache
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\obj\Debug\net7.0\XPaymentsProject.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\obj\Debug\net7.0\XPaymentsProject.Infra.AssemblyInfoInputs.cache
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\obj\Debug\net7.0\XPaymentsProject.Infra.AssemblyInfo.cs
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\obj\Debug\net7.0\XPaymentsProject.Infra.csproj.CoreCompileInputs.cache
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\obj\Debug\net7.0\XPaymentsProject.Infra.csproj.CopyComplete
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\obj\Debug\net7.0\XPaymentsProject.Infra.dll
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\obj\Debug\net7.0\refint\XPaymentsProject.Infra.dll
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\obj\Debug\net7.0\XPaymentsProject.Infra.pdb
+C:\dev\XPaymentsProject\XPaymentsProject.Infra\obj\Debug\net7.0\ref\XPaymentsProject.Infra.dll
