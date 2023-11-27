@@ -1,0 +1,46 @@
+﻿@page "/produtos"
+@inject IProdutoApplicationService ProdutoService
+
+<h3>Produto</h3>
+
+@if (produtos == null)
+{
+    <p><em>Carregando...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Garantia</th>
+                <th>E-mail do Suporte</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var produto in produtos)
+            {
+                <tr>
+                    <td>@produto.Id</td>
+                    <td>@produto.Nome</td>
+                    <td>@produto.Descricao</td>
+                    <td>@produto.Garantia</td>
+                    <td>@produto.EmailSuporte</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button>Cadastrar novo Produto</button>
+}
+
+@code {
+    private List<Produto>? produtos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        produtos = await ProdutoService.GetAllProdutos();
+    }
+}

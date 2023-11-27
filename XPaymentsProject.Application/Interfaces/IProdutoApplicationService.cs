@@ -9,6 +9,6 @@ namespace XPaymentsProject.Application.Interfaces
         Task UpdateProduto(int id, Produto produto);
         Task DeleteProduto(int id);
         Task<Produto> GetProdutoById(int id);
-        Task GetAllProdutos();
+        Task<List<Produto>> GetAllProdutos();
     }
 }

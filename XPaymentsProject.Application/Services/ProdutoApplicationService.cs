@@ -18,9 +18,9 @@ namespace XPaymentsProject.Application.Services
             _genericRepository = genericRepository;
         }
 
-        public async Task GetAllProdutos()
+        public async Task<List<Produto>> GetAllProdutos()
         {
-            await _genericRepository.GetAllAsync();
+            return await _genericRepository.GetAllAsync();
         }
 
         public async Task<Produto> GetProdutoById(int id)

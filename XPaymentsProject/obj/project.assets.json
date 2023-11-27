@@ -960,6 +960,48 @@
             "rid": "win"
           }
         }
+      },
+      "XPaymentsProject.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14",
+          "XPaymentsProject.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/XPaymentsProject.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/XPaymentsProject.Application.dll": {}
+        }
+      },
+      "XPaymentsProject.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14"
+        },
+        "compile": {
+          "bin/placeholder/XPaymentsProject.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/XPaymentsProject.Domain.dll": {}
+        }
+      },
+      "XPaymentsProject.Infra/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.14",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14",
+          "XPaymentsProject.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/XPaymentsProject.Infra.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/XPaymentsProject.Infra.dll": {}
+        }
       }
     }
   },
@@ -2609,11 +2651,28 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "XPaymentsProject.Application/1.0.0": {
+      "type": "project",
+      "path": "../XPaymentsProject.Application/XPaymentsProject.Application.csproj",
+      "msbuildProject": "../XPaymentsProject.Application/XPaymentsProject.Application.csproj"
+    },
+    "XPaymentsProject.Domain/1.0.0": {
+      "type": "project",
+      "path": "../XPaymentsProject.Domain/XPaymentsProject.Domain.csproj",
+      "msbuildProject": "../XPaymentsProject.Domain/XPaymentsProject.Domain.csproj"
+    },
+    "XPaymentsProject.Infra/1.0.0": {
+      "type": "project",
+      "path": "../XPaymentsProject.Infra/XPaymentsProject.Infra.csproj",
+      "msbuildProject": "../XPaymentsProject.Infra/XPaymentsProject.Infra.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.14"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.14",
+      "XPaymentsProject.Application >= 1.0.0",
+      "XPaymentsProject.Infra >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2647,7 +2706,14 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\dev\\XPaymentsProject\\XPaymentsProject.Application\\XPaymentsProject.Application.csproj": {
+              "projectPath": "C:\\dev\\XPaymentsProject\\XPaymentsProject.Application\\XPaymentsProject.Application.csproj"
+            },
+            "C:\\dev\\XPaymentsProject\\XPaymentsProject.Infra\\XPaymentsProject.Infra.csproj": {
+              "projectPath": "C:\\dev\\XPaymentsProject\\XPaymentsProject.Infra\\XPaymentsProject.Infra.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

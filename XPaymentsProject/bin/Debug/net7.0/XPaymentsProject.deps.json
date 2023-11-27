@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v7.0": {
       "XPaymentsProject/1.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14"
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14",
+          "XPaymentsProject.Application": "1.0.0",
+          "XPaymentsProject.Infra": "1.0.0"
         },
         "runtime": {
           "XPaymentsProject.dll": {}
@@ -492,6 +494,33 @@
             "fileVersion": "6.0.21.52210"
           }
         }
+      },
+      "XPaymentsProject.Application/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14",
+          "XPaymentsProject.Domain": "1.0.0"
+        },
+        "runtime": {
+          "XPaymentsProject.Application.dll": {}
+        }
+      },
+      "XPaymentsProject.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14"
+        },
+        "runtime": {
+          "XPaymentsProject.Domain.dll": {}
+        }
+      },
+      "XPaymentsProject.Infra/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.14",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14",
+          "XPaymentsProject.Domain": "1.0.0"
+        },
+        "runtime": {
+          "XPaymentsProject.Infra.dll": {}
+        }
       }
     }
   },
@@ -878,6 +907,21 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "XPaymentsProject.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "XPaymentsProject.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "XPaymentsProject.Infra/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

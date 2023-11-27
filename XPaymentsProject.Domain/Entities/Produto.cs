@@ -52,7 +52,7 @@ namespace XPaymentsProject.Domain.Entities
 
             Foto = foto;
 
-            if (garantia > 7)
+            if (garantia < 7)
                 throw new Exception("Garantia inválida.");
 
             Garantia = garantia;

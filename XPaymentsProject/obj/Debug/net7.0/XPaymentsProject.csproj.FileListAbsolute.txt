@@ -69,3 +69,9 @@ C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\runtimes\win\lib\net6.
 C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\dev\XPaymentsProject\XPaymentsProject\obj\Debug\net7.0\XPaymentsProject.csproj.CopyComplete
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\XPaymentsProject.Application.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\XPaymentsProject.Domain.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\XPaymentsProject.Application.pdb
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\XPaymentsProject.Domain.pdb
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\XPaymentsProject.Infra.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\XPaymentsProject.Infra.pdb
