@@ -1,7 +1,7 @@
 ﻿@page "/produtos"
 @inject IProdutoApplicationService ProdutoService
 
-<h3>Produto</h3>
+<h3>Produtos</h3>
 
 @if (produtos == null)
 {
@@ -9,29 +9,24 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Garantia</th>
-                <th>E-mail do Suporte</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var produto in produtos)
-            {
-                <tr>
-                    <td>@produto.Id</td>
-                    <td>@produto.Nome</td>
-                    <td>@produto.Descricao</td>
-                    <td>@produto.Garantia</td>
-                    <td>@produto.EmailSuporte</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div class="row">
+        @foreach (var produto in produtos)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="@produto.Foto" class="card-img-top" alt="@produto.Nome">
+                    <div class="card-body">
+                        <h5 class="card-title">@produto.Nome</h5>
+                        <p class="card-text">@produto.Descricao</p>
+                        <p class="card-text"><small class="text-muted">Garantia: @produto.Garantia meses</small></p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 
     <button>Cadastrar novo Produto</button>
 }

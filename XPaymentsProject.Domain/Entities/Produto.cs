@@ -33,22 +33,22 @@ namespace XPaymentsProject.Domain.Entities
 
             Descricao = descricao;
 
-            if (string.IsNullOrWhiteSpace(foto))
-                throw new Exception("Por favor, insira uma foto.");
+            //if (string.IsNullOrWhiteSpace(foto))
+            //    throw new Exception("Por favor, insira uma foto.");
 
-            byte[] imagemBytes;
-            try
-            {
-                imagemBytes = Convert.FromBase64String(foto);
-            }
-            catch (FormatException)
-            {
-                throw new ArgumentException("A foto não está em um formato base64 válido.");
-            }
+            //byte[] imagemBytes;
+            //try
+            //{
+            //    imagemBytes = Convert.FromBase64String(foto);
+            //}
+            //catch (FormatException)
+            //{
+            //    throw new ArgumentException("A foto não está em um formato base64 válido.");
+            //}
 
-            // Verifica se o tamanho da foto é maior que 10MB
-            if (imagemBytes.Length > 10 * 1024 * 1024)
-                throw new ArgumentException("A foto deve ter no máximo 10 MB.");
+            //// Verifica se o tamanho da foto é maior que 10MB
+            //if (imagemBytes.Length > 10 * 1024 * 1024)
+            //    throw new ArgumentException("A foto deve ter no máximo 10 MB.");
 
             Foto = foto;
 
