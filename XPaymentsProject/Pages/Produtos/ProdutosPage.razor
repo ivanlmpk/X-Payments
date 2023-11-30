@@ -14,7 +14,7 @@ else
         {
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img src="@produto.Foto" class="card-img-top" alt="@produto.Nome">
+                    <img src="@($"data:image/jpeg;base64,{produto.Foto}")" class="card-img-top" alt="@produto.Nome">
                     <div class="card-body">
                         <h5 class="card-title">@produto.Nome</h5>
                         <p class="card-text">@produto.Descricao</p>
@@ -28,7 +28,9 @@ else
         }
     </div>
 
-    <button>Cadastrar novo Produto</button>
+    <NavLink class="btn btn-primary" href="produtos/cadastro">
+        Cadastrar novo produto
+    </NavLink>
 }
 
 @code {
@@ -39,3 +41,5 @@ else
         produtos = await ProdutoService.GetAllProdutos();
     }
 }
+
+

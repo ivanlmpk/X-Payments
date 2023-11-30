@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPaymentsProject", "XPaymentsProject\XPaymentsProject.csproj", "{33A4551D-01B5-4263-B73A-F8FC5F29B119}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPaymentsProject", "XPaymentsProject\XPaymentsProject.csproj", "{33A4551D-01B5-4263-B73A-F8FC5F29B119}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPaymentsProject.Application", "XPaymentsProject.Application\XPaymentsProject.Application.csproj", "{3CA0AC05-CE2C-4D2E-84BE-0C40E4D07C99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPaymentsProject.Application", "XPaymentsProject.Application\XPaymentsProject.Application.csproj", "{3CA0AC05-CE2C-4D2E-84BE-0C40E4D07C99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPaymentsProject.Domain", "XPaymentsProject.Domain\XPaymentsProject.Domain.csproj", "{AC967790-08A0-49C5-B786-783D29B39CCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPaymentsProject.Domain", "XPaymentsProject.Domain\XPaymentsProject.Domain.csproj", "{AC967790-08A0-49C5-B786-783D29B39CCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XPaymentsProject.Infra", "XPaymentsProject.Infra\XPaymentsProject.Infra.csproj", "{333BCBB5-CD7C-4C21-808B-529C5C1FD487}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XPaymentsProject.Infra", "XPaymentsProject.Infra\XPaymentsProject.Infra.csproj", "{333BCBB5-CD7C-4C21-808B-529C5C1FD487}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

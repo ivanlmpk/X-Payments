@@ -32,8 +32,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/dev/XPaymentsProject/XPaymentsProject/Pages/ProdutosPage.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHV0b3NQYWdlLnJhem9y
+[C:/dev/XPaymentsProject/XPaymentsProject/Pages/Produtos/CreateProdutoPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHV0b3NcQ3JlYXRlUHJvZHV0b1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/XPaymentsProject/XPaymentsProject/Pages/Produtos/ProdutosPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHV0b3NcUHJvZHV0b3NQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/dev/XPaymentsProject/XPaymentsProject/Shared/SurveyPrompt.razor]

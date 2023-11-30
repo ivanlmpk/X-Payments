@@ -1,0 +1,61 @@
+﻿@page "/produtos/cadastro"
+@using XPaymentsProject.Domain.Entities
+@inject IProdutoApplicationService ProdutoService
+
+<h3>Cadastro de Produto</h3>
+
+<EditForm Model="@produto" OnValidSubmit="@GravarProduto">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="Nome">Nome:</label>
+        <InputText id="Nome" class="form-control" @bind-Value="produto.Nome" />
+    </div>
+
+    <div class="form-group">
+        <label for="Descricao">Descrição:</label>
+        <InputTextArea id="Descricao" class="form-control" @bind-Value="produto.Descricao" />
+    </div>
+
+    <div class="form-group">
+        <label for="Garantia">Garantia (em anos):</label>
+        <InputNumber id="Garantia" class="form-control" @bind-Value="produto.Garantia" />
+    </div>
+
+    <div class="form-group">
+        <label for="EmailSuporte">E-mail de Suporte:</label>
+        <InputText id="EmailSuporte" class="form-control" @bind-Value="produto.EmailSuporte" />
+    </div>
+
+    <div class="form-group">
+        <label for="Foto">Foto do Produto:</label>
+        <InputFile id="Foto" OnChange="@ConverterImagem" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Cadastrar Produto</button>
+</EditForm>
+
+
+@code {
+    private Produto? produto = new Produto();
+
+    private async Task GravarProduto()
+    {
+        await ProdutoService.AddProduto(produto.Nome, produto.Descricao, base64Imagem, produto.Garantia, produto.EmailSuporte);
+    }
+
+    private string? base64Imagem;
+    private async Task ConverterImagem(InputFileChangeEventArgs e)
+    {
+        var arquivoImagem = e.File;
+        if(arquivoImagem != null)
+        {
+            using var stream = arquivoImagem.OpenReadStream();
+            var buffer = new byte[arquivoImagem.Size];
+            await stream.ReadAsync(buffer);
+
+            base64Imagem = Convert.ToBase64String(buffer);
+        }
+    }
+}
