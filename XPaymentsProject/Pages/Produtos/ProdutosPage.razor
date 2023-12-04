@@ -12,7 +12,7 @@ else
     <div class="row">
         @foreach (var produto in produtos)
         {
-            <div class="col-md-4 mb-4">
+            <div class="col-md-3 mb-4 divCard">
                 <div class="card h-100">
                     <img src="@($"data:image/jpeg;base64,{produto.Foto}")" class="card-img-top" alt="@produto.Nome">
                     <div class="card-body">
