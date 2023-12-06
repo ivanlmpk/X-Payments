@@ -22,10 +22,11 @@ namespace XPaymentsProject.Infra.Repositories
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task AddAsync(T entity)
+        public async Task<bool> AddAsync(T entity)
         {
             await _context.AddAsync(entity);
             await _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task UpdateAsync(T entity)

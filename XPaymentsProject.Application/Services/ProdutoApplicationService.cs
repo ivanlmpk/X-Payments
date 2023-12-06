@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,11 +29,21 @@ namespace XPaymentsProject.Application.Services
             return await _genericRepository.GetByIdAsync(id);
         }
 
-        public async Task AddProduto(string nome, string descricao, string foto, int garantia, string emailSuporte)
+        public async Task<bool> AddProduto(string nome, string descricao, string foto, int garantia, string emailSuporte)
         {
-            var produto = new Produto(nome, descricao, foto, garantia, emailSuporte);
+            try
+            {
+                var produto = new Produto(nome, descricao, foto, garantia, emailSuporte);
 
-            await _genericRepository.AddAsync(produto);
+                await _genericRepository.AddAsync(produto);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Falha ao adicionar novo produto. Erro: {ex}");
+            }
+            
         }
 
         public async Task UpdateProduto(int id, Produto produto)

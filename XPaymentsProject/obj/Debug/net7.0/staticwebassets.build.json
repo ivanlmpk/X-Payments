@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Y8FpMkxS4OLPkubcLMMwpYbmlqGNIbyWuf5DPZo7qeo=",
+  "Hash": "BktW6cPjLG/wW+2bLJLplDp1uLJme1t94ire5imRNOE=",
   "Source": "XPaymentsProject",
   "BasePath": "_content/XPaymentsProject",
   "Mode": "Default",
@@ -270,6 +270,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\dev\\XPaymentsProject\\XPaymentsProject\\wwwroot\\js\\app.js",
+      "SourceId": "XPaymentsProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\dev\\XPaymentsProject\\XPaymentsProject\\wwwroot\\",
+      "BasePath": "_content/XPaymentsProject",
+      "RelativePath": "js/app.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\app.js"
     }
   ]
 }
