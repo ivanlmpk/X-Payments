@@ -1,19 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace XPaymentsProject.Domain.Entities
 {
     public class Produto
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "O nome do produto é obrigatório.")]
+        [StringLength(100, ErrorMessage = "O nome deve ter entre 3 e 100 caracteres", MinimumLength = 3)]
         public string? Nome { get; set; }
+
+        [Required(ErrorMessage = "A descrição do produto é obrigatório.")]
+        [StringLength(1000, ErrorMessage = "A descrição deve ter no máximo 600 caracteres")]
         public string? Descricao { get; set; }
+
         public string? Foto { get; set; }
+
+        [Required(ErrorMessage = "Informe a garantia.")]
         public int Garantia { get; set; }
+
+        [Required(ErrorMessage = "O e-mail do suporte é obrigatório.")]
         public string? EmailSuporte { get; set; }
 
         public Produto() { }
@@ -25,7 +32,7 @@ namespace XPaymentsProject.Domain.Entities
 
         public void SetProduto(string nome, string descricao, string foto, int garantia, string emailSuporte)
         {
-            if (string.IsNullOrWhiteSpace(nome) || nome.Length <= 2 || nome.Length > 50 || nome.All(Char.IsDigit))
+            if (string.IsNullOrWhiteSpace(nome) || nome.Length < 3 || nome.Length > 50 || nome.All(Char.IsDigit))
                 throw new Exception("Nome do produto inválido. Por favor, escreva um nome válido.");
 
             Nome = nome;

@@ -1,49 +1,43 @@
 ﻿@page "/produtos/cadastro"
 @inject IProdutoApplicationService ProdutoService
 @inject IJSRuntime JSRuntime
+@inject ISnackbar Snackbar
 
 <h3>Cadastro de Produto</h3>
 
 <EditForm Model="@produto" OnValidSubmit="@GravarProduto">
     <DataAnnotationsValidator />
-    <ValidationSummary />
+    <MudTextField T="string" Label="Nome" @bind-Value="produto.Nome" For="@(() => produto.Nome)" FullWidth />
+    <MudTextField T="string" Label="Descrição" @bind-Value="produto.Descricao" For="@(() => produto.Descricao)" FullWidth multiline="true" />
+    <MudNumericField T="int" Label="Garantia (em meses)" @bind-Value="produto.Garantia" For="@(() => produto.Garantia)" FullWidth />
+    <MudTextField T="string" Label="E-mail de Suporte" @bind-Value="produto.EmailSuporte" For="@(() => produto.EmailSuporte)" FullWidth />
 
-    <div class="form-group">
-        <label for="Nome">Nome:</label>
-        <InputText id="Nome" class="form-control" @bind-Value="produto.Nome" />
-    </div>
+    <MudFileUpload T="InputFileChangeEventArgs" OnFilesChanged="@ConverterImagem">
+        <ButtonTemplate Context="Outro">
+            <MudButton HtmlTag="label"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       StartIcon="@Icons.Material.Filled.CloudUpload">
+                Escolha a foto
+            </MudButton>
+        </ButtonTemplate>  
+    </MudFileUpload>
 
-    <div class="form-group">
-        <label for="Descricao">Descrição:</label>
-        <InputTextArea id="Descricao" class="form-control" @bind-Value="produto.Descricao" />
-    </div>
-
-    <div class="form-group">
-        <label for="Garantia">Garantia (em anos):</label>
-        <InputNumber id="Garantia" class="form-control" @bind-Value="produto.Garantia" />
-    </div>
-
-    <div class="form-group">
-        <label for="EmailSuporte">E-mail de Suporte:</label>
-        <InputText id="EmailSuporte" class="form-control" @bind-Value="produto.EmailSuporte" />
-    </div>
-
-    <div class="form-group">
-        <label for="Foto">Foto do Produto:</label>
-        <InputFile id="Foto" OnChange="@ConverterImagem" />
-    </div>
-
-    <button type="submit" class="btn btn-success">Cadastrar Produto</button>
+    <MudButton Variant="Variant.Filled"
+               Color="Color.Dark"
+               ButtonType="ButtonType.Submit"
+               Class="mt-5"
+               StartIcon="@Icons.Material.Filled.Save">
+        Cadastrar Produto
+    </MudButton>
+    <MudButton Variant="Variant.Filled"
+               Color="Color.Inherit"
+               Href="/produtos" Class="mt-5 ml-2">
+        Voltar
+    </MudButton>
 </EditForm>
 
-@*<Modal IsVisible="@mostrarModal">
-    <h3>Produto cadastrado com sucesso!</h3>
-    <button @onclick="FecharModal">Fechar</button>
-</Modal> *@
-
-
 @code {
-    private bool mostrarModal = false;
     private Produto? produto = new Produto();
 
     private async Task GravarProduto()
@@ -51,8 +45,7 @@
         var resultado = await ProdutoService.AddProduto(produto.Nome, produto.Descricao, base64Imagem, produto.Garantia, produto.EmailSuporte);
         if (resultado)
         {
-            await JSRuntime.InvokeVoidAsync("MostrarMensagemSucesso", "Produto cadastrado com sucesso!");
-            mostrarModal = true;
+            MostrarNotificacaoSucesso();
 
             produto = new Produto();
             base64Imagem = null;
@@ -62,19 +55,22 @@
     private string? base64Imagem;
     private async Task ConverterImagem(InputFileChangeEventArgs e)
     {
-        var arquivoImagem = e.File;
-        if(arquivoImagem != null)
+        var arquivoImagens = e.GetMultipleFiles();
+        if (arquivoImagens != null)
         {
-            using var stream = arquivoImagem.OpenReadStream();
-            var buffer = new byte[arquivoImagem.Size];
-            await stream.ReadAsync(buffer);
+            foreach (var imagem in arquivoImagens)
+            {
+                using var stream = imagem.OpenReadStream();
+                var buffer = new byte[imagem.Size];
+                await stream.ReadAsync(buffer);
 
-            base64Imagem = Convert.ToBase64String(buffer);
+                base64Imagem = Convert.ToBase64String(buffer);
+            }
         }
     }
 
-    private void FecharModal()
+    private void MostrarNotificacaoSucesso()
     {
-        mostrarModal = false;
+        Snackbar.Add("Produto cadastrado com sucesso!", Severity.Success);
     }
 }

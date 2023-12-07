@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
+using MudBlazor.Services;
 using XPaymentsProject.Application.Interfaces;
 using XPaymentsProject.Application.Services;
 using XPaymentsProject.Data;
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 // Adicionado os serviços do produto a injeção de dependencia
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IProdutoApplicationService, ProdutoApplicationService>();
+builder.Services.AddMudServices();
 
 
 var app = builder.Build();

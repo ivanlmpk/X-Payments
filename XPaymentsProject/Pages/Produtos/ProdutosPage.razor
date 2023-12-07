@@ -3,9 +3,12 @@
 
 <h3>Produtos</h3>
 
-<NavLink class="btn btn-primary" href="produtos/cadastro">
+<MudButton Variant="Variant.Filled" 
+    Color="Color.Default"
+    Href="produtos/cadastro"
+    Class="mt-1" StartIcon="@Icons.Material.Filled.AddBox" Size="Size.Large">
         Cadastrar novo produto
-    </NavLink>
+</MudButton>
 
 @if (produtos == null)
 {

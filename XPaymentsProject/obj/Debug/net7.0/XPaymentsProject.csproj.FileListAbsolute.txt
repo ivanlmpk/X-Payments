@@ -75,3 +75,16 @@ C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\XPaymentsProject.Appli
 C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\XPaymentsProject.Domain.pdb
 C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\XPaymentsProject.Infra.dll
 C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\XPaymentsProject.Infra.pdb
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Blazored.Modal.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Blazored.Toast.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Microsoft.AspNetCore.Authorization.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Microsoft.AspNetCore.Components.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Microsoft.AspNetCore.Components.Web.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Microsoft.AspNetCore.Metadata.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Microsoft.Extensions.Localization.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Microsoft.Extensions.Localization.Abstractions.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Microsoft.JSInterop.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\Microsoft.JSInterop.WebAssembly.dll
+C:\dev\XPaymentsProject\XPaymentsProject\bin\Debug\net7.0\MudBlazor.dll
