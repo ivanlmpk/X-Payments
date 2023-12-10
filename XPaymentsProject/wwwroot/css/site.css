@@ -76,3 +76,14 @@ a, .btn-link {
     max-height: 160px;
     object-fit: contain;
 }
+
+.botaoUpload {
+    border: none;
+    font-family: Roboto;
+    font-size: initial;
+    /*font-weight: bold;*/
+}
+
+.botoesFim{
+    margin-top: 1em;
+}

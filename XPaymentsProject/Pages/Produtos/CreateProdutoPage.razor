@@ -11,30 +11,28 @@
     <MudTextField T="string" Label="Descrição" @bind-Value="produto.Descricao" For="@(() => produto.Descricao)" FullWidth multiline="true" />
     <MudNumericField T="int" Label="Garantia (em meses)" @bind-Value="produto.Garantia" For="@(() => produto.Garantia)" FullWidth />
     <MudTextField T="string" Label="E-mail de Suporte" @bind-Value="produto.EmailSuporte" For="@(() => produto.EmailSuporte)" FullWidth />
+    
 
-    <MudFileUpload T="InputFileChangeEventArgs" OnFilesChanged="@ConverterImagem">
-        <ButtonTemplate Context="Outro">
-            <MudButton HtmlTag="label"
-                       Variant="Variant.Filled"
-                       Color="Color.Primary"
-                       StartIcon="@Icons.Material.Filled.CloudUpload">
-                Escolha a foto
-            </MudButton>
-        </ButtonTemplate>  
-    </MudFileUpload>
+    <MudButton Class="mt-5" Variant="Variant.Filled" Color="Color.Info" StartIcon="@Icons.Material.Filled.CloudUpload">
+        <InputFile class="botaoUpload" OnChange="@ConverterImagem" />
+    </MudButton>
 
-    <MudButton Variant="Variant.Filled"
-               Color="Color.Dark"
-               ButtonType="ButtonType.Submit"
-               Class="mt-5"
-               StartIcon="@Icons.Material.Filled.Save">
-        Cadastrar Produto
-    </MudButton>
-    <MudButton Variant="Variant.Filled"
-               Color="Color.Inherit"
-               Href="/produtos" Class="mt-5 ml-2">
-        Voltar
-    </MudButton>
+    <div class="button-group botoesFim">
+        <MudButton Variant="Variant.Filled"
+                   Color="Color.Dark"
+                   ButtonType="ButtonType.Submit"
+                   Class="mt-5"
+                   StartIcon="@Icons.Material.Filled.Save">
+            Cadastrar Produto
+        </MudButton>
+
+        <MudButton Variant="Variant.Filled"
+                   Color="Color.Inherit"
+                   Href="/produtos" Class="mt-5 ml-2">
+            Voltar
+        </MudButton>
+    </div>
+    
 </EditForm>
 
 @code {
@@ -43,12 +41,17 @@
     private async Task GravarProduto()
     {
         var resultado = await ProdutoService.AddProduto(produto.Nome, produto.Descricao, base64Imagem, produto.Garantia, produto.EmailSuporte);
-        if (resultado)
+        if (resultado.IsSuccess)
         {
             MostrarNotificacaoSucesso();
 
             produto = new Produto();
             base64Imagem = null;
+        } else {
+            foreach (var excessao in resultado.Exceptions.InnerExceptions)
+            {
+                Snackbar.Add($"Erro: {excessao.Message}", Severity.Error);
+            }
         }
     }
 

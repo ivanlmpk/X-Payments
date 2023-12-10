@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using XPaymentsProject.Application.Interfaces;
 using XPaymentsProject.Domain.Entities;
 using XPaymentsProject.Domain.Interfaces;
+using XPaymentsProject.Domain.Utilities;
 
 namespace XPaymentsProject.Application.Services
 {
@@ -29,7 +30,7 @@ namespace XPaymentsProject.Application.Services
             return await _genericRepository.GetByIdAsync(id);
         }
 
-        public async Task<bool> AddProduto(string nome, string descricao, string foto, int garantia, string emailSuporte)
+        public async Task<Result<bool>> AddProduto(string nome, string descricao, string foto, int garantia, string emailSuporte)
         {
             try
             {
@@ -37,11 +38,11 @@ namespace XPaymentsProject.Application.Services
 
                 await _genericRepository.AddAsync(produto);
 
-                return true;
+                return Result<bool>.Success(true);
             }
-            catch (Exception ex)
+            catch (AggregateException ex)
             {
-                throw new Exception($"Falha ao adicionar novo produto. Erro: {ex}");
+                return Result<bool>.Failure(ex);
             }
             
         }

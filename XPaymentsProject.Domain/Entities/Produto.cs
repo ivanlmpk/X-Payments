@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MudBlazor;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace XPaymentsProject.Domain.Entities
@@ -32,44 +33,55 @@ namespace XPaymentsProject.Domain.Entities
 
         public void SetProduto(string nome, string descricao, string foto, int garantia, string emailSuporte)
         {
+            var excessoes = new List<Exception>();
+
             if (string.IsNullOrWhiteSpace(nome) || nome.Length < 3 || nome.Length > 50 || nome.All(Char.IsDigit))
-                throw new Exception("Nome do produto inválido. Por favor, escreva um nome válido.");
+                excessoes.Add(new Exception("Nome inválido. Deve ter entre 3-50 caracteres e conter letras."));
 
             Nome = nome;
 
-            if (string.IsNullOrWhiteSpace(descricao) || descricao.Length <= 2 || descricao.Length > 600 || descricao.All(Char.IsDigit))
-                throw new Exception("Descrição inválida. Por favor, escreva uma descrição válida.");
+            if (string.IsNullOrWhiteSpace(descricao) || descricao.Length < 4 || descricao.Length > 600 || descricao.All(Char.IsDigit))
+                excessoes.Add(new Exception("Descrição inválida. Deve ter entre 4-600 caracteres."));
 
             Descricao = descricao;
 
-            if (string.IsNullOrWhiteSpace(foto))
-                throw new Exception("Por favor, insira uma foto.");
-
-            byte[] imagemBytes;
-            try
-            {
-                imagemBytes = Convert.FromBase64String(foto);
-            }
-            catch (FormatException)
-            {
-                throw new ArgumentException("A foto não está em um formato base64 válido.");
-            }
-
-            // Verifica se o tamanho da foto é maior que 10MB
-            if (imagemBytes.Length > 10 * 1024 * 1024)
-                throw new ArgumentException("A foto deve ter no máximo 10 MB.");
-
-            Foto = foto;
-
-            if (garantia < 7)
-                throw new Exception("Garantia inválida.");
+            if (garantia < 1)
+                excessoes.Add(new Exception("Garantia inválida. Deve ser de no mínimo 1 mês."));
 
             Garantia = garantia;
 
             if (string.IsNullOrEmpty(emailSuporte) || !Regex.IsMatch(emailSuporte, "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"))
-                throw new Exception("E-mail inválido.");
+                excessoes.Add(new Exception("E-mail inválido. Use um formato válido."));
 
             EmailSuporte = emailSuporte;
+
+            if (string.IsNullOrWhiteSpace(foto))
+            {
+                excessoes.Add(new Exception("Foto obrigatória. Por favor, insira uma foto."));
+            }
+            else
+            {
+                byte[] imagemBytes;
+                try
+                {
+                    imagemBytes = Convert.FromBase64String(foto);
+                }
+                catch (FormatException)
+                {
+                    throw new ArgumentException("A foto não está em um formato base64 válido.");
+                }
+
+                // Verifica se o tamanho da foto é maior que 10MB
+                if (imagemBytes.Length > 10 * 1024 * 1024)
+                    throw new ArgumentException("A foto deve ter no máximo 10 MB.");
+
+                Foto = foto;
+            }
+
+            if (excessoes.Any())
+            {
+                throw new AggregateException(excessoes);
+            }
         }
     }
 }
