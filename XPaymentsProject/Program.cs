@@ -22,6 +22,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IProdutoApplicationService, ProdutoApplicationService>();
 builder.Services.AddMudServices();
+builder.Services.AddMudBlazorJsEvent();
 
 
 var app = builder.Build();
@@ -44,3 +45,4 @@ app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
 app.Run();
+

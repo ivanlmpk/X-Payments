@@ -87,3 +87,9 @@ a, .btn-link {
 .botoesFim{
     margin-top: 1em;
 }
+
+@media(max-width: 640px) {
+    #navMenu {
+        display: none;
+    }
+}
