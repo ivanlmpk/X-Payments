@@ -88,6 +88,13 @@ a, .btn-link {
     margin-top: 1em;
 }
 
+.loginBox {
+    display: flex;
+    position: center;
+    align-content: center;
+    align-items: center;
+}
+
 @media(max-width: 640px) {
     #navMenu {
         display: none;

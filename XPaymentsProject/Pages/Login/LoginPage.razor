@@ -1,0 +1,64 @@
+﻿@page "/login"
+@inject IUsuarioApplicationService UsuarioService
+@inject IAutenticacaoApplicationService AutenticacaoService
+@inject IJSRuntime JSRuntime
+@inject ISnackbar Snackbar
+@inject NavigationManager NavigationManager
+
+<h3>LoginPage</h3>
+
+<MudPaper Class="w-25 loginBox" Elevation="25" Square="true" Outlined="true">
+    <MudContainer>
+        <MudText Typo="Typo.h5" GutterBottom="true">Login</MudText>
+        <EditForm Model="@usuario" OnValidSubmit="@HandleLogin">
+            <MudTextField Label="Username" Variant="Variant.Outlined" @bind-Value="usuario.Login" For="@(() => usuario.Login)" Margin="Margin.Dense" FullWidth />
+            <MudTextField Label="Password" Variant="Variant.Outlined" @bind-Value="usuario.Senha" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ButtonTestclick" AdornmentAriaLabel="Show Password" Margin="Margin.Dense" />
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" Type="submit" @onclick="HandleLogin">Log in</MudButton>
+        </EditForm>
+    </MudContainer>
+</MudPaper>
+
+
+
+@code {
+    private Usuario usuario = new Usuario();
+
+    private async Task HandleLogin()
+    {
+        var login = usuario.Login;
+        var senha = usuario.Senha;
+
+        var buscaUsuario = await AutenticacaoService.ValidarUsuario(login, senha);
+
+        if (login == buscaUsuario.Login && senha == buscaUsuario.Senha)
+        {
+            Snackbar.Add("Login concluido com sucesso!", Severity.Success);
+
+            NavigationManager.NavigateTo("/produtos");
+
+        } else
+        {
+            Snackbar.Add("Falha ao logar.", Severity.Error);
+        }
+    }
+
+    bool isShow;
+    InputType PasswordInput = InputType.Password;
+    string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+
+    void ButtonTestclick()
+    {
+        @if (isShow)
+        {
+            isShow = false;
+            PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+            PasswordInput = InputType.Password;
+        }
+        else
+        {
+            isShow = true;
+            PasswordInputIcon = Icons.Material.Filled.Visibility;
+            PasswordInput = InputType.Text;
+        }
+    }
+}

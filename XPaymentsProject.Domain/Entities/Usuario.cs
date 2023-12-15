@@ -15,6 +15,7 @@ namespace XPaymentsProject.Domain.Entities
         public string? Nome { get; set; }
         public string? Email { get; set; }
 
+        public Usuario() { }
         public Usuario(string login, string senha, string nome, string email)
         {
             SetUsuario(login, senha, nome, email);

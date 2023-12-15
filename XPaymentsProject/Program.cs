@@ -20,7 +20,10 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 
 // Adicionado os serviços do produto a injeção de dependencia
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
 builder.Services.AddScoped<IProdutoApplicationService, ProdutoApplicationService>();
+builder.Services.AddScoped<IUsuarioApplicationService, UsuarioApplicationService>();
+builder.Services.AddScoped<IAutenticacaoApplicationService, AutenticacaoApplicationService>();
 builder.Services.AddMudServices();
 builder.Services.AddMudBlazorJsEvent();
 

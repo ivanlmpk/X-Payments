@@ -13,6 +13,6 @@ namespace XPaymentsProject.Application.Interfaces
         Task UpdateUsuario(int id, Usuario usuario);
         Task DeleteUsuario(int id);
         Task<Usuario> GetUsuarioById(int id);
-        Task GetAllUsuarios();
+        Task<List<Usuario>> GetAllUsuarios();
     }
 }
